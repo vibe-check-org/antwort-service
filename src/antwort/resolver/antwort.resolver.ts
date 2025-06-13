@@ -13,7 +13,7 @@ export class AntwortResolver {
 
     @Mutation(() => Antwort)
     @Roles({ roles: ['Admin', 'User'] })
-    createAntwort(@Args('input') input: CreateAntwortInput) {
+    saveAntwort(@Args('input') input: CreateAntwortInput) {
         return this.#service.create(input);
     }
 
@@ -21,5 +21,17 @@ export class AntwortResolver {
     @Roles({ roles: ['Admin', 'User'] })
     antwortenVonUser(@Args('userId') userId: string) {
         return this.#service.findAllByUser(userId);
+    }
+
+    @Query(() => [Antwort])
+    @Roles({ roles: ['Admin', 'User'] })
+    getAnswersByFragebogenAndUser(
+        @Args('fragebogenId') fragebogenId: string,
+        @Args('userId') userId: string,
+    ) {
+        return this.#service.getAnswersByFragebogenAndUser(
+            fragebogenId,
+            userId,
+        );
     }
 }

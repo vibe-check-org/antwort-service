@@ -18,10 +18,11 @@ scalar DateTime
 
 type Query {
   antwortenVonUser(userId: String!): [Antwort!]!
+  getAnswersByFragebogenAndUser(fragebogenId: String!, userId: String!): [Antwort!]!
 }
 
 type Mutation {
-  createAntwort(input: CreateAntwortInput!): Antwort!
+  saveAntwort(input: CreateAntwortInput!): Antwort!
 }
 
 input CreateAntwortInput {
