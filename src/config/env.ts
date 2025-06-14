@@ -7,7 +7,7 @@ dotenv.config();
 
 const {
     NODE_ENV,
-    CLIENT_SECRET,
+    KC_SERVICE_SECRET,
     LOG_DEFAULT,
     START_DB_SERVER,
     GRAPHQL_SCHEMA,
@@ -17,7 +17,7 @@ const {
 
 export const env = {
     NODE_ENV,
-    CLIENT_SECRET,
+    KC_SERVICE_SECRET,
     LOG_DEFAULT,
     START_DB_SERVER,
     GRAPHQL_SCHEMA,

@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { IS_PUBLIC_KEY } from '../constants.js';
 import {
     CanActivate,
     ExecutionContext,
@@ -10,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { GqlExecutionContext } from '@nestjs/graphql';
-import { IS_PUBLIC_KEY } from '../constants.js';
+import jwt from 'jsonwebtoken'; // ganz oben hinzufügen
 
 @Injectable()
 export class KeycloakGuard implements CanActivate {
@@ -48,11 +46,25 @@ export class KeycloakGuard implements CanActivate {
             return true;
         }
 
-        const user = request.user;
+        let user = request.user;
         const requiredRoles = this.getRequiredRoles(context);
 
         if (!requiredRoles.length) {
             return true; // keine Rollen gefordert = freier Zugriff
+        }
+
+        if (!user) {
+            const authHeader = request.headers?.authorization;
+            if (authHeader?.startsWith('Bearer ')) {
+                const token = authHeader.slice(7);
+                try {
+                    user = jwt.decode(token) as any;
+                    request.user = user;
+                    this.#logger.debug('🔑 JWT im Guard erfolgreich dekodiert');
+                } catch (err) {
+                    this.#logger.warn('❌ JWT konnte nicht dekodiert werden');
+                }
+            }
         }
 
         if (!user) {

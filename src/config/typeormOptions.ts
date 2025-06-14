@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { Antwort } from '../antwort/model/entity/antwort.entity.js';
+import { entities } from '../antwort/model/entity/entities.js';
 import { loggerDefaultValue } from './logger.js';
 import { nodeConfig } from './node.js';
-import { resolve } from 'node:path';
 import { SnakeNamingStrategy } from './typeormNamingStrategy.js';
 import { config } from './user.js';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { resolve } from 'node:path';
 import { DataSourceOptions } from 'typeorm';
-import { Antwort } from '../antwort/model/entity/antwort.entity.js';
-import { entities } from '../antwort/model/entity/entities.js';
 
 const { db } = config;
 

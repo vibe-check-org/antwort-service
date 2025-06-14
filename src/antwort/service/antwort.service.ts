@@ -1,8 +1,8 @@
+import { CreateAntwortInput } from '../model/dto/create-antwort.input.js';
+import { Antwort } from '../model/entity/antwort.entity.js';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateAntwortInput } from '../model/dto/create-antwort.input.js';
-import { Antwort } from '../model/entity/antwort.entity.js';
 
 @Injectable()
 export class AntwortService {

@@ -1,5 +1,5 @@
-import { Injectable, Scope } from '@nestjs/common';
 import { TraceContext } from './trace-context.util';
+import { Injectable, Scope } from '@nestjs/common';
 
 /**
  * Kontext-Provider für Trace-Daten (z.B. aus Zipkin via x-b3-traceid).

@@ -4,8 +4,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { env } from './env.js';
 import { nodeConfig } from './node.js';
-import { resolve } from 'node:path';
 import { config } from './user.js';
+import { resolve } from 'node:path';
 import pino from 'pino';
 import { PrettyOptions } from 'pino-pretty';
 

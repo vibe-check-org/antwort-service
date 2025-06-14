@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { TraceContextProvider } from './trace-context.provider.js';
+import { TraceContextUtil } from './trace-context.util.js';
 import {
     CallHandler,
     ExecutionContext,
@@ -8,8 +10,6 @@ import {
     NestInterceptor,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
-import { TraceContextProvider } from './trace-context.provider.js';
-import { TraceContextUtil } from './trace-context.util.js';
 
 @Injectable()
 export class TraceInterceptor implements NestInterceptor {

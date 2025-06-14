@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { getLogger } from './logger.js';
 import { Temporal } from '@js-temporal/polyfill';
 import {
     type CallHandler,
@@ -12,7 +13,6 @@ import { type Response } from 'express';
 import { type Observable } from 'rxjs';
 import { type TapObserver } from 'rxjs/internal/operators/tap';
 import { tap } from 'rxjs/operators';
-import { getLogger } from './logger.js';
 
 /**
  * `ResponseTimeInterceptor` protokolliert die Antwortzeit und den Statuscode

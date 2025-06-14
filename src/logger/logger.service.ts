@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
 import { KafkaProducerService } from '../messaging/kafka-producer.service.js';
 import { LoggerPlus } from './logger-plus.js';
+import { Injectable } from '@nestjs/common';
 
 /**
  * LoggerService erstellt pro Kontext eine LoggerPlus-Instanz mit Kafka-Anbindung.

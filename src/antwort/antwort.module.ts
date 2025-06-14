@@ -1,10 +1,10 @@
-import { forwardRef, Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { entities } from './model/entity/entities.js';
 import { KafkaModule } from '../messaging/kafka.module.js';
 import { KeycloakModule } from '../security/keycloak/keycloak.module.js';
+import { entities } from './model/entity/entities.js';
 import { AntwortResolver } from './resolver/antwort.resolver.js';
 import { AntwortService } from './service/antwort.service.js';
+import { forwardRef, Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
     imports: [

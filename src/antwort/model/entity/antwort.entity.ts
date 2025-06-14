@@ -1,10 +1,10 @@
+import { ObjectType, Field, ID } from '@nestjs/graphql';
 import {
     Entity,
     PrimaryGeneratedColumn,
     Column,
     CreateDateColumn,
 } from 'typeorm';
-import { ObjectType, Field, ID } from '@nestjs/graphql';
 
 @Entity()
 @ObjectType()

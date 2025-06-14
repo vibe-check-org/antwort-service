@@ -1,4 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { AdminModule } from './admin/admin.module.js';
+import { AntwortModule } from './antwort/antwort.module.js';
+import { DevModule } from './config/dev/dev.module.js';
+import { graphQlModuleOptions2 } from './config/graphql.js';
+import { typeOrmModuleOptions } from './config/typeormOptions.js';
+import { HealthModule } from './health/health.module.js';
+import { LoggerModule } from './logger/logger.module.js';
+import { RequestLoggerMiddleware } from './logger/request-logger.middleware.js';
+import { KafkaModule } from './messaging/kafka.module.js';
 import { type ApolloDriverConfig } from '@nestjs/apollo';
 import {
     type MiddlewareConsumer,
@@ -7,14 +15,6 @@ import {
 } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AdminModule } from './admin/admin.module.js';
-import { DevModule } from './config/dev/dev.module.js';
-import { graphQlModuleOptions2 } from './config/graphql.js';
-import { typeOrmModuleOptions } from './config/typeormOptions.js';
-import { LoggerModule } from './logger/logger.module.js';
-import { RequestLoggerMiddleware } from './logger/request-logger.middleware.js';
-import { KafkaModule } from './messaging/kafka.module.js';
-import { AntwortModule } from './antwort/antwort.module.js';
 
 @Module({
     imports: [
@@ -25,6 +25,7 @@ import { AntwortModule } from './antwort/antwort.module.js';
         TypeOrmModule.forRoot(typeOrmModuleOptions),
         KafkaModule,
         AntwortModule,
+        HealthModule,
     ],
 })
 export class AppModule implements NestModule {

@@ -1,7 +1,7 @@
-import { RESOURCES_DIR, config } from './user.js';
 import { env } from './env.js';
-import { hostname } from 'node:os';
 import { httpsOptions } from './https.js';
+import { RESOURCES_DIR, config } from './user.js';
+import { hostname } from 'node:os';
 
 const { NODE_ENV } = env;
 

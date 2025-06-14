@@ -2,17 +2,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // src/kafka/kafka-producer.service.ts
+import { kafkaBroker } from '../config/kafka.js';
+import { TraceContext } from '../trace/trace-context.util.js';
+import { KafkaHeaderBuilder } from './kafka-header-builder.js';
+import { KafkaTopics } from './kafka-topic.properties.js';
 import {
     Injectable,
     OnModuleInit,
     OnApplicationShutdown,
 } from '@nestjs/common';
-import { Kafka, Message, Producer, ProducerRecord } from 'kafkajs';
-import { kafkaBroker } from '../config/kafka.js';
-import { TraceContext } from '../trace/trace-context.util.js';
-import { KafkaHeaderBuilder } from './kafka-header-builder.js';
-import { KafkaTopics } from './kafka-topic.properties.js';
 import { context, SpanStatusCode, trace, Tracer } from '@opentelemetry/api';
+import { Kafka, Message, Producer, ProducerRecord } from 'kafkajs';
 
 /**
  * Kafka Producer zum Senden von Nachrichten.

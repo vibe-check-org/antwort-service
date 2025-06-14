@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { getLogger } from './logger.js';
 import { KafkaProducerService } from '../messaging/kafka-producer.service.js';
-import { TraceContext } from '../trace/trace-context.util.js';
 import { KafkaTopics } from '../messaging/kafka-topic.properties.js';
-import { format } from 'util';
+import { TraceContext } from '../trace/trace-context.util.js';
+import { getLogger } from './logger.js';
 import {
     trace,
     context,
@@ -14,6 +13,7 @@ import {
     SpanContext,
     Tracer,
 } from '@opentelemetry/api';
+import { format } from 'util';
 
 const LogLevel = {
     TRACE: 'TRACE',

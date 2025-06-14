@@ -1,15 +1,13 @@
-/* eslint-disable @typescript-eslint/require-await */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable camelcase, @typescript-eslint/naming-convention */
+
+import { keycloakConnectOptions } from '../../config/keycloak.js';
+import { getLogger } from '../../logger/logger.js';
 import { Injectable } from '@nestjs/common';
 import axios, { type AxiosInstance } from 'axios';
 import {
     type KeycloakConnectOptions,
     type KeycloakConnectOptionsFactory,
 } from 'nest-keycloak-connect';
-import { keycloakConnectOptions } from '../../config/keycloak.js';
-import { getLogger } from '../../logger/logger.js';
 
 const { authServerUrl } = keycloakConnectOptions;
 
@@ -55,3 +53,4 @@ export class KeycloakService implements KeycloakConnectOptionsFactory {
         return { username: preferred_username, email, roles, token };
     }
 }
+/* eslint-enable camelcase, @typescript-eslint/naming-convention */

@@ -3,15 +3,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // src/messaging/handlers/orchestrator.handler.ts
-import { Injectable } from '@nestjs/common';
-import { KafkaEventHandler } from '../interface/kafka-event.interface.js';
+import { getLogger } from '../../logger/logger.js';
+import { Trace } from '../../trace/trace.decorator.js';
 import {
     KafkaEvent,
     KafkaHandler,
 } from '../decorators/kafka-event.decorator.js';
+import { KafkaEventHandler } from '../interface/kafka-event.interface.js';
 import { KafkaTopics } from '../kafka-topic.properties.js';
-import { getLogger } from '../../logger/logger.js';
-import { Trace } from '../../trace/trace.decorator.js';
+import { Injectable } from '@nestjs/common';
 
 @KafkaHandler('orchestrator')
 @Injectable()

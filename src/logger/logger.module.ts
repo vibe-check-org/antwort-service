@@ -1,8 +1,8 @@
-import { Global, Module } from '@nestjs/common';
-import { BannerService } from './banner.service.js';
-import { ResponseTimeInterceptor } from './response-time.interceptor.js';
-import { LoggerService } from './logger.service.js';
 import { KafkaModule } from '../messaging/kafka.module.js';
+import { BannerService } from './banner.service.js';
+import { LoggerService } from './logger.service.js';
+import { ResponseTimeInterceptor } from './response-time.interceptor.js';
+import { Global, Module } from '@nestjs/common';
 
 /**
  * Das Modul besteht aus allgemeinen Services, z.B. MailService.

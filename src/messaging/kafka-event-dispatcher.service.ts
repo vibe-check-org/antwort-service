@@ -3,13 +3,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // src/kafka/kafka-event-dispatcher.service.ts
+import { getLogger } from '../logger/logger.js';
+import { KAFKA_EVENT_TOPICS } from '../messaging/decorators/kafka-event.decorator.js';
+import { KafkaEventContext } from '../messaging/interface/kafka-event.interface.js';
+import { TraceContextProvider } from '../trace/trace-context.provider.js';
+import { TraceContextUtil } from '../trace/trace-context.util.js';
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { DiscoveryService, Reflector } from '@nestjs/core';
-import { KafkaEventContext } from '../messaging/interface/kafka-event.interface.js';
-import { getLogger } from '../logger/logger.js';
-import { TraceContextUtil } from '../trace/trace-context.util.js';
-import { TraceContextProvider } from '../trace/trace-context.provider.js';
-import { KAFKA_EVENT_TOPICS } from '../messaging/decorators/kafka-event.decorator.js';
 
 @Injectable()
 export class KafkaEventDispatcherService implements OnModuleInit {
