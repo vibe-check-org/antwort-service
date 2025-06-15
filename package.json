@@ -25,6 +25,7 @@
     "prettier": "prettier --cache --write \"src/**/*.ts\""
   },
   "dependencies": {
+    "@apollo/server": "^4.12.2",
     "@apollo/subgraph": "^2.10.2",
     "@js-temporal/polyfill": "^0.5.1",
     "@nestjs/apollo": "^13.1.0",
@@ -47,6 +48,7 @@
     "class-validator": "^0.14.2",
     "compression": "^1.8.0",
     "decimal.js": "^10.5.0",
+    "graphql": "^16.11.0",
     "helmet": "^8.1.0",
     "js-yaml": "^4.1.0",
     "jsonwebtoken": "^9.0.2",
