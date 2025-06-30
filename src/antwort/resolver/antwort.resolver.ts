@@ -17,19 +17,19 @@ export class AntwortResolver {
     }
 
     @Mutation(() => Antwort)
-    @Roles({ roles: ['Admin', 'User'] })
+    @Roles({ roles: ['Admin', 'BEWERBER', 'RECRUITER'] })
     saveAntwort(@Args('input') input: CreateAntwortInput) {
         return this.#service.create(input);
     }
 
     @Query(() => [Antwort])
-    @Roles({ roles: ['Admin', 'User'] })
+    @Roles({ roles: ['Admin', 'BEWERBER', 'RECRUITER'] })
     antwortenVonUser(@Args('userId') userId: string) {
         return this.#service.findAllByUser(userId);
     }
 
     @Query(() => [Antwort])
-    @Roles({ roles: ['Admin', 'User'] })
+    @Roles({ roles: ['Admin', 'BEWERBER', 'RECRUITER'] })
     getAnswersByFragebogenAndUser(
         @Args('fragebogenId') fragebogenId: string,
         @Args('userId') userId: string,
