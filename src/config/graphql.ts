@@ -33,9 +33,8 @@ export const graphQlModuleOptions2: ApolloFederationDriverConfig = {
         process.env.SCHEMA_TARGET === 'tmp'
             ? { path: '/tmp/schema.gql', federation: 2 }
             : process.env.SCHEMA_TARGET === 'false'
-                ? false
-                : { path: 'dist/schema.gql', federation: 2 },
+              ? false
+              : { path: 'dist/schema.gql', federation: 2 },
     driver: ApolloFederationDriver,
     playground: false,
 };
-  

@@ -19,7 +19,7 @@ import { DataSource } from 'typeorm';
  */
 @Injectable()
 export class DbPopulateService implements OnApplicationBootstrap {
-    readonly #tabellen = ['antwort'];
+    readonly #tabellen = ['antwort', 'antwort_template'];
 
     readonly #datasource: DataSource;
 

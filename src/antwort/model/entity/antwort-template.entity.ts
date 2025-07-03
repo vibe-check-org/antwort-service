@@ -8,26 +8,22 @@ import {
 
 @Entity()
 @ObjectType()
-export class Antwort {
+export class AntwortTemplate {
     @PrimaryGeneratedColumn('uuid')
     @Field(() => ID)
     id: string;
 
     @Column()
     @Field()
-    userId: string;
-
-    @Column()
-    @Field()
     frageId: string;
-
-    @Column()
-    @Field()
-    fragebogenId: string;
 
     @Column('text', { array: true })
     @Field(() => [String])
     antwort: string[];
+
+    @Column({ type: 'text' })
+    @Field()
+    punkte: number;
 
     @CreateDateColumn()
     @Field()

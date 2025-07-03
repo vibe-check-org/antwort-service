@@ -11,6 +11,6 @@ export class CreateAntwortInput {
     @Field()
     frageId: string;
 
-    @Field()
-    antwort: string;
+    @Field(() => [String])
+    antwort: string[];
 }
